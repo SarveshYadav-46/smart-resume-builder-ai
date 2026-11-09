@@ -1,0 +1,8 @@
+# Backend local environment and dependency ignore
+node_modules
+.env
+.env*.local
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
