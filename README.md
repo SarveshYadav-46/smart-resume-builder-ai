@@ -313,30 +313,6 @@ Open your browser at **`http://localhost:5173`**.
 
 ---
 
-### Part 2: Deploy Frontend to Vercel
-
-1. **Import Project to Vercel**:
-   - Go to [vercel.com](https://vercel.com) and click **Add New** > **Project**.
-   - Select your GitHub repository.
-
-2. **Build & Output Settings**:
-   - **Framework Preset**: `Vite`
-   - **Root Directory**: `frontend`
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `dist`
-
-3. **Configure Environment Variables on Vercel**:
-   Under **Environment Variables**, add:
-   - `VITE_API_URL` = `https://smart-resume-builder-backend.onrender.com/api`
-
-4. **Deploy**:
-   Click **Deploy**. `vercel.json` will automatically configure Single-Page Application (SPA) routing rewrites so that `/dashboard` and `/create-resume` load smoothly.
-
-5. **Update Backend CORS**:
-   Copy your live Vercel URL (e.g. `https://smart-resume-builder-taupe.vercel.app`) and set it as `FRONTEND_URL` in your Render Web Service settings.
-
----
-
 ## 🖼️ Application Screenshots
 
 | Page / Feature | Description |
