@@ -4,7 +4,7 @@
 [![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![Express.js](https://img.shields.io/badge/Express.js-4.21-000000?logo=express&logoColor=white)](https://expressjs.com/)
 [![MongoDB Atlas](https://img.shields.io/badge/MongoDB%20Atlas-Cloud%20Database-47A248?logo=mongodb&logoColor=white)](https://www.mongodb.com/atlas)
-[![Google Gemini AI](https://img.shields.io/badge/Google%20Gemini-1.5%20Flash-4285F4?logo=google&logoColor=white)](https://aistudio.google.com/)
+[![Google Gemini AI](https://img.shields.io/badge/Google%20Gemini-3.8%20Flash-4285F4?logo=google&logoColor=white)](https://aistudio.google.com/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Vite](https://img.shields.io/badge/Vite-6.0-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -15,9 +15,18 @@ A modern, production-ready Full Stack **MERN** (MongoDB, Express, React, Node.js
 
 ## 🚀 Live Demo & Deployment Links
 
-- **Frontend (Vercel):** [https://smart-resume-builder-taupe.vercel.app](https://smart-resume-builder-taupe.vercel.app) *(Replace with your live Vercel URL)*
-- **Backend API (Render):** [https://smart-resume-builder-api.onrender.com](https://smart-resume-builder-api.onrender.com) *(Replace with your live Render URL)*
-- **API Health Check:** [https://smart-resume-builder-api.onrender.com/api/health](https://smart-resume-builder-api.onrender.com/api/health)
+- **Frontend (Vercel):** https://smart-resume-builder-ai.vercel.app/
+- **Backend API (Render):** https://smart-resume-builder-backend-e900.onrender.com
+- **API Health Check:** https://smart-resume-builder-backend-e900.onrender.com/api/health
+
+---
+
+## 📚 Documentation Links
+
+For detailed, subproject-specific installation, configuration, and architecture details, see:
+
+- 📘 **[Frontend Documentation](frontend/README.md)** — Comprehensive guide for the React 18 & Vite client application, component hierarchy, templates, and Vercel deployment.
+- 📙 **[Backend Documentation](backend/README.md)** — Detailed guide for the Node.js & Express RESTful API, MongoDB Atlas integration, Google Gemini AI services, test suites, and Render deployment.
 
 ---
 
@@ -59,7 +68,7 @@ A modern, production-ready Full Stack **MERN** (MongoDB, Express, React, Node.js
 | **Frontend** | React 18, Vite 6, Tailwind CSS 3, Lucide React, React Router DOM 6 |
 | **Backend** | Node.js (ES Modules), Express.js 4, Mongoose 8, CORS, Dotenv |
 | **Database** | MongoDB Atlas (Cloud NoSQL Database) |
-| **Artificial Intelligence** | Google Gemini 1.5 Flash (`@google/generative-ai`) |
+| **Artificial Intelligence** | Google Gemini 3.8 Flash (`@google/generative-ai`) |
 | **PDF Generation** | `html2pdf.js`, `@media print` CSS engine |
 | **Deployment** | Vercel (Frontend SPA), Render (Backend Web Service) |
 
@@ -70,16 +79,15 @@ A modern, production-ready Full Stack **MERN** (MongoDB, Express, React, Node.js
 ```text
 smart-resume-builder/
 ├── .gitignore                    # Root Git ignore configuration
-├── README.md                     # Comprehensive project documentation
+├── README.md                     # Main repository documentation & overview
 ├── render.yaml                   # Render Blueprint Infrastructure-as-Code deployment spec
 │
 ├── frontend/                     # Independent React 18 + Vite 6 Client Application
-│   ├── .env                      # Local frontend environment variables (git ignored)
+│   ├── README.md                 # Detailed frontend architecture & deployment guide
+│   ├── .env                      # Local frontend environment variables (git-ignored)
 │   ├── .env.example              # Frontend environment template
-│   ├── .gitignore                # Frontend specific git ignore
-│   ├── index.html                # HTML entry point with html2pdf CDN & Google Fonts
+│   ├── index.html                # Single-page application HTML entry
 │   ├── package.json              # Frontend dependencies (React, Lucide, Tailwind, Vite)
-│   ├── package-lock.json         # Frontend locked dependency tree
 │   ├── postcss.config.js         # PostCSS Tailwind plugins
 │   ├── tailwind.config.js        # Tailwind typography and theme configuration
 │   ├── vercel.json               # Vercel Single-Page-App routing rewrite configuration
@@ -113,7 +121,7 @@ smart-resume-builder/
 │       ├── context/
 │       │   └── ResumeContext.jsx         # Global state & API sync context provider
 │       ├── data/
-│       │   ├── mockResumes.js            # Initial fallback resumes
+│       │   ├── mockResumes.js            # Fallback mock resumes
 │       │   └── sampleResume.js           # Sample resume default dataset
 │       ├── pages/
 │       │   ├── CreateResumePage.jsx      # Split-screen resume editor studio
@@ -125,14 +133,15 @@ smart-resume-builder/
 │           └── pdfExport.js              # A4 PDF download & candidate naming utility
 │
 └── backend/                      # Independent Node.js + Express REST API
-    ├── .env                      # Local backend secrets (git ignored)
+    ├── README.md                 # Detailed backend architecture & API reference guide
+    ├── .env                      # Local backend secrets (git-ignored)
     ├── .env.example              # Backend environment template
-    ├── .gitignore                # Backend specific git ignore
     ├── package.json              # Backend dependencies (@google/generative-ai, express, etc.)
-    ├── package-lock.json         # Backend locked dependency tree
-    ├── server.js                 # Express server entry point & CORS configuration
+    ├── server.js                 # Express server entry point, CORS & graceful shutdown
+    ├── test-ai-service.js        # Automated Gemini AI service test suite
+    ├── test-db-connection.js     # Automated MongoDB Atlas connection & CRUD test suite
     ├── config/
-    │   └── db.js                 # MongoDB Atlas connection handler
+    │   └── db.js                 # MongoDB Atlas connection handler & DNS configuration
     ├── controllers/
     │   ├── aiController.js       # Gemini AI request validation and handling
     │   └── resumeController.js   # Resume CRUD database operations
@@ -144,7 +153,8 @@ smart-resume-builder/
     │   ├── aiRoutes.js           # /api/ai routes
     │   └── resumeRoutes.js       # /api/resumes routes
     └── services/
-        └── aiService.js          # Google Gemini AI prompts and SDK wrapper
+        ├── aiService.js          # Google Gemini AI prompts, cascading fallback & error handling
+        └── geminiService.js      # Backward-compatible re-export module
 ```
 
 ---
@@ -165,11 +175,9 @@ NODE_ENV=development
 FRONTEND_URL=http://localhost:5173
 
 # MongoDB Atlas Connection String
-# Replace <username>, <password>, and cluster domain with your MongoDB credentials
 MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/smart_resume_builder?retryWrites=true&w=majority
 
 # Google Gemini API Key
-# Get your free key at: https://aistudio.google.com/app/apikey
 GEMINI_API_KEY=your_gemini_api_key_here
 
 # Optional: Gemini Model (defaults to gemini-3.8-flash)
@@ -198,11 +206,11 @@ VITE_API_URL=http://localhost:5000/api
 
 ### Step 1: Clone Repository
 ```bash
-git clone https://github.com/your-username/smart-resume-builder.git
-cd smart-resume-builder
+git clone https://github.com/SarveshYadav-46/smart-resume-builder-ai.git
+cd smart-resume-builder-ai
 ```
 
-### Step 2: Install Dependencies Separately
+### Step 2: Install Dependencies
 
 **Install Backend Dependencies:**
 ```bash
@@ -219,10 +227,10 @@ cd ..
 ```
 
 ### Step 3: Configure Environment Variables
-- Copy `backend/.env.example` to `backend/.env` and paste your `MONGODB_URI` and `GEMINI_API_KEY`.
+- Copy `backend/.env.example` to `backend/.env` and supply your `MONGODB_URI` and `GEMINI_API_KEY`.
 - Copy `frontend/.env.example` to `frontend/.env`.
 
-### Step 4: Run Frontend and Backend Separately
+### Step 4: Run Frontend and Backend
 
 **Terminal 1 — Run Backend Server (Port 5000):**
 ```bash
@@ -272,44 +280,18 @@ Open your browser at **`http://localhost:5173`**.
 
 ---
 
-## 🚢 Deployment Preparation & Step-by-Step Guide
+## 🚀 Deployment Overview
 
-### Part 1: Deploy Backend to Render
+The project is deployed in a decoupled architecture:
 
-1. **Push your code to GitHub**:
-   Ensure `.env` and `node_modules` are not committed (verify with `git status`).
+| Component | Platform | Live URL | Configuration Docs |
+| :--- | :--- | :--- | :--- |
+| **Frontend** | Vercel | [https://smart-resume-builder-ai.vercel.app/](https://smart-resume-builder-ai.vercel.app/) | [Frontend README](frontend/README.md#production-deployment-vercel) |
+| **Backend API** | Render | [https://smart-resume-builder-backend-e900.onrender.com](https://smart-resume-builder-backend-e900.onrender.com) | [Backend README](backend/README.md#render-deployment-configuration) |
+| **Health Check** | Render | [https://smart-resume-builder-backend-e900.onrender.com/api/health](https://smart-resume-builder-backend-e900.onrender.com/api/health) | [Backend Health Check](backend/README.md#system--health) |
 
-2. **Create Web Service on Render**:
-   - Go to [dashboard.render.com](https://dashboard.render.com) and click **New +** > **Web Service**.
-   - Connect your GitHub repository.
-   - Configure the service:
-     - **Name**: `smart-resume-builder-backend`
-     - **Root Directory**: `backend`
-     - **Environment**: `Node`
-     - **Build Command**: `npm install`
-     - **Start Command**: `npm start`
-     - **Health Check Path**: `/api/health`
-
-3. **Configure Environment Variables on Render**:
-   In the Render dashboard under **Environment**:
-   - `NODE_ENV` = `production`
-   - `PORT` = `5000`
-   - `MONGODB_URI` = `<Your MongoDB Atlas connection URI>`
-   - `GEMINI_API_KEY` = `<Your Google Gemini API Key>`
-   - `FRONTEND_URL` = `https://your-frontend-domain.vercel.app` *(update once frontend is deployed)*
-
-4. **Verify Backend Deployment**:
-   Open `https://smart-resume-builder-backend.onrender.com/api/health`. You should receive:
-   ```json
-   {
-     "status": "online",
-     "message": "Smart Resume Builder API is running smoothly",
-     "services": {
-       "database": "Connected (MongoDB Atlas)",
-       "geminiAI": "Configured"
-     }
-   }
-   ```
+- **Frontend on Vercel:** Automated CI/CD from `main`, root directory set to `frontend`, output directory `dist`, SPA URL rewriting via `vercel.json`, connecting to Render via `VITE_API_URL`.
+- **Backend on Render:** Automated Web Service deployment from `main`, root directory set to `backend`, start command `npm start`, health check path `/api/health`, environment configured with MongoDB Atlas and Gemini API keys.
 
 ---
 
